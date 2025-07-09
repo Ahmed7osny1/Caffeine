@@ -26,30 +26,24 @@ import com.example.caffeine.R
 import com.example.caffeine.composable.CoffeeSlider
 import com.example.caffeine.composable.IconTextButton
 import com.example.caffeine.composable.TopBarContent
-import com.example.caffeine.navigation.AppDestination
-import com.example.caffeine.screens.thank_you_screen.navigateToThankYou
+import com.example.caffeine.screens.sized_product_screen.navigateToSizedProduct
 import com.example.caffeine.ui.theme.urbanist
 
 @Composable
 fun HomeScreen(
-    navHostController: NavHostController,
-    viewModel: HomeScreenViewModel = viewModel()
+    navHostController: NavHostController, viewModel: HomeScreenViewModel = viewModel()
 ) {
     HomeScreenContent(
         modifier = Modifier
             .background(color = Color(0xFFFFFFFF))
             .fillMaxSize()
             .systemBarsPadding()
-            .verticalScroll(rememberScrollState()),
-        onNextClick = {
-            val selectedCoffeeName = viewModel.state.value.image
-//            navHostController.navigateToThankYou(
-//                name = selectedCoffeeName
-//            )
-            navHostController.navigate(AppDestination.PrepareProgressScreen.route)
-        },
-        onItemSelect = { viewModel.selectCoffee(it) }
-    )
+            .verticalScroll(rememberScrollState()), onNextClick = {
+        val selectedCoffeeName = viewModel.state.value.name
+        navHostController.navigateToSizedProduct(
+            name = selectedCoffeeName
+        )
+    }, onItemSelect = { viewModel.selectCoffee(it) })
 }
 
 @Composable

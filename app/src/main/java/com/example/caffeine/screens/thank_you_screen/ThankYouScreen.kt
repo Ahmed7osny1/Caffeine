@@ -1,11 +1,5 @@
 package com.example.caffeine.screens.thank_you_screen
 
-import android.R.attr.fontFamily
-import android.R.attr.fontWeight
-import android.R.attr.letterSpacing
-import android.R.attr.text
-import android.system.Os.stat
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -36,7 +30,6 @@ import com.example.caffeine.composable.CloseButton
 import com.example.caffeine.composable.IconTextButton
 import com.example.caffeine.navigation.AppDestination
 import com.example.caffeine.ui.theme.sniglet
-import org.koin.core.parameter.parametersOf
 
 @Composable
 fun ThankYouScreen(
@@ -51,23 +44,19 @@ fun ThankYouScreen(
             .background(color = Color(0xFFFFFFFF))
             .systemBarsPadding(),
         state = state,
-        onBackClick = { navController.popBackStack(
-            route = AppDestination.StarterScreen.route,
-            inclusive = false
+        onBackClick = {
+            navController.popBackStack(
+                route = AppDestination.StarterScreen.route, inclusive = false
             )
-        }
-    )
+        })
 }
 
 @Composable
 fun ThankYouContent(
-    modifier: Modifier = Modifier,
-    state: Int,
-    onBackClick: () -> Unit
+    modifier: Modifier = Modifier, state: Int, onBackClick: () -> Unit
 ) {
     Column(
-        modifier = modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
         CloseButton(
             modifier = Modifier

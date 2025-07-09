@@ -6,5 +6,6 @@ sealed class AppDestination(val route: String) {
     object HomeCoffeeReady: AppDestination(route = "HomeCoffeeReady")
     object PrepareProgressScreen: AppDestination(route = "PrepareProgressScreen")
     object SnacksScreen: AppDestination(route = "SnacksScreen")
+    object SizedProductScreen: AppDestination(route = "SizedProductScreen")
     object ThankYouScreen: AppDestination(route = "ThankYouScreen")
 }

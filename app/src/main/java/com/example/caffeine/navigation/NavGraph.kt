@@ -9,9 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.caffeine.screens.PrepareProgressScreen
+import com.example.caffeine.screens.prepare_progress_screen.PrepareProgressScreen
 import com.example.caffeine.screens.home_coffee_ready.HomeCoffeeReady
 import com.example.caffeine.screens.home_screen.HomeScreen
+import com.example.caffeine.screens.sized_product_screen.SizedProductScreen
+import com.example.caffeine.screens.sized_product_screen.sizedProductRoute
 import com.example.caffeine.screens.snacks_screen.SnacksScreen
 import com.example.caffeine.screens.starter_screen.StarterScreen
 import com.example.caffeine.screens.thank_you_screen.thankYouRoute
@@ -61,6 +63,8 @@ fun NavGraph(navHostController: NavHostController) {
         ) {
             SnacksScreen(navHostController)
         }
+
+        sizedProductRoute(navController = navHostController)
 
         thankYouRoute(navController = navHostController)
 

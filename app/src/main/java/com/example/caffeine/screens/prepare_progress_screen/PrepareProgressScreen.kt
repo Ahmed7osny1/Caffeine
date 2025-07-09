@@ -1,4 +1,4 @@
-package com.example.caffeine.screens
+package com.example.caffeine.screens.prepare_progress_screen
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
@@ -93,7 +93,7 @@ private fun PrepareProgressContent(
                 painter = painterResource(R.drawable.logo),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(64.dp) // 40
+                    .size(64.dp)
                     .align(Alignment.Center)
             )
         }
