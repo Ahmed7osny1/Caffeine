@@ -86,7 +86,7 @@ fun HomeCoffeeReadyContent(
     LaunchedEffect(Unit) {
         scope.launch {
             cupOffset.animateTo(
-                -67f, animationSpec = TweenSpec(durationMillis = 2000)
+                -64f, animationSpec = TweenSpec(durationMillis = 2000)
             )
         }
         readySectionOffset.animateTo(
