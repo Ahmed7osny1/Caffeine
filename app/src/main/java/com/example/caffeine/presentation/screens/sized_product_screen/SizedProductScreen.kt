@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
@@ -70,46 +71,49 @@ fun SizedProductContent(
     onNextClicked: () -> Unit,
 ) {
     val currentSize = remember { mutableStateOf("M") }
-    val currentCoffeeLevel = remember { mutableStateOf("Low") }
-    val previousCoffeeLevel = remember { mutableStateOf("") }
 
     val buttonOffsetY = remember { Animatable(300f) }
     val buttonFade = remember { Animatable(0.2f) }
     val isVisible = remember { mutableStateOf(true) }
-    val imageOffset = remember { Animatable(-100f) }
-    val coffeeScale = remember { Animatable(0f) }
 
-    remember { mutableStateOf(false) }
+    val currentCoffeeLevel = remember { mutableStateOf("Low") }
+    val previousCoffeeLevel = remember { mutableStateOf("") }
+
+    val imageOffset = remember { Animatable(100f) }
+    val coffeeScale = remember { Animatable(0f) }
 
 
     LaunchedEffect(currentCoffeeLevel.value) {
-        val targetOffset = 100f
-        val levelOrder = mapOf("Low" to 1, "Medium" to 2, "High" to 3)
-        val currentLevelValue = levelOrder[currentCoffeeLevel.value] ?: 1
-        val previousLevelValue = levelOrder[previousCoffeeLevel.value] ?: 0
-        if (currentLevelValue > previousLevelValue || previousLevelValue == 0) {
-            imageOffset.snapTo(-1000f)
-            imageOffset.animateTo(
-                targetValue = targetOffset,
-                animationSpec = tween(durationMillis = 1000, easing = EaseInOutCubic)
-            )
-            launch {
-                coffeeScale.animateTo(
-                    targetValue = 1f,
-                    animationSpec = tween(durationMillis = 1000, easing = EaseInOut)
+        if (previousCoffeeLevel.value.isNotEmpty()) {
+            val targetOffset = 100f
+            val levelOrder = mapOf("Low" to 1, "Medium" to 2, "High" to 3)
+            val currentLevelValue = levelOrder[currentCoffeeLevel.value] ?: 1
+            val previousLevelValue = levelOrder[previousCoffeeLevel.value] ?: 0
+
+            if (currentLevelValue > previousLevelValue) {
+                imageOffset.snapTo(-1000f)
+                imageOffset.animateTo(
+                    targetValue = targetOffset,
+                    animationSpec = tween(durationMillis = 1000, easing = EaseInOutCubic)
                 )
-            }
-        } else {
-            imageOffset.snapTo(100f)
-            imageOffset.animateTo(
-                targetValue = -1000f,
-                animationSpec = tween(durationMillis = 1000, easing = EaseInOutCubic)
-            )
-            launch {
-                coffeeScale.animateTo(
-                    targetValue = 1f,
-                    animationSpec = tween(durationMillis = 1000, easing = EaseInOut)
+                launch {
+                    coffeeScale.animateTo(
+                        targetValue = 1f,
+                        animationSpec = tween(durationMillis = 1000, easing = EaseInOut)
+                    )
+                }
+            } else {
+                imageOffset.snapTo(100f)
+                imageOffset.animateTo(
+                    targetValue = -1000f,
+                    animationSpec = tween(durationMillis = 1000, easing = EaseInOutCubic)
                 )
+                launch {
+                    coffeeScale.animateTo(
+                        targetValue = 1f,
+                        animationSpec = tween(durationMillis = 1000, easing = EaseInOut)
+                    )
+                }
             }
         }
         previousCoffeeLevel.value = currentCoffeeLevel.value

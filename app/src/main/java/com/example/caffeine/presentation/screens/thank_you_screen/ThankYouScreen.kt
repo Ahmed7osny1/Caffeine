@@ -92,7 +92,7 @@ fun ThankYouContent(
                 )
             )
             Image(
-                painter = painterResource(R.drawable.cupcake),
+                painter = painterResource(R.drawable.coffee_beans),
                 contentDescription = null,
                 modifier = Modifier.size(32.dp)
             )
