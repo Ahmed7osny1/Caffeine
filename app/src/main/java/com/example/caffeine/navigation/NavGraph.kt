@@ -9,14 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.caffeine.screens.prepare_progress_screen.PrepareProgressScreen
-import com.example.caffeine.screens.home_coffee_ready.HomeCoffeeReady
-import com.example.caffeine.screens.home_screen.HomeScreen
-import com.example.caffeine.screens.sized_product_screen.SizedProductScreen
-import com.example.caffeine.screens.sized_product_screen.sizedProductRoute
-import com.example.caffeine.screens.snacks_screen.SnacksScreen
-import com.example.caffeine.screens.starter_screen.StarterScreen
-import com.example.caffeine.screens.thank_you_screen.thankYouRoute
+import com.example.caffeine.presentation.screens.home_coffee_ready_screen.homeCoffeeReadyRoute
+import com.example.caffeine.presentation.screens.home_screen.HomeScreen
+import com.example.caffeine.presentation.screens.prepare_progress_screen.prepareProgressRoute
+import com.example.caffeine.presentation.screens.sized_product_screen.sizedProductRoute
+import com.example.caffeine.presentation.screens.snacks_screen.SnacksScreen
+import com.example.caffeine.presentation.screens.starter_screen.StarterScreen
+import com.example.caffeine.presentation.screens.thank_you_screen.thankYouRoute
 
 @Composable
 fun NavGraph(navHostController: NavHostController) {
@@ -34,8 +33,7 @@ fun NavGraph(navHostController: NavHostController) {
         },
         popExitTransition = {
             fadeOut(animationSpec = tween(500))
-        }
-    ) {
+        }) {
 
         composable(
             route = AppDestination.StarterScreen.route,
@@ -49,22 +47,16 @@ fun NavGraph(navHostController: NavHostController) {
             HomeScreen(navHostController)
         }
         composable(
-            route = AppDestination.HomeCoffeeReady.route,
-        ) {
-            HomeCoffeeReady(navHostController)
-        }
-        composable(
-            route = AppDestination.PrepareProgressScreen.route,
-        ) {
-            PrepareProgressScreen(navHostController)
-        }
-        composable(
             route = AppDestination.SnacksScreen.route,
         ) {
             SnacksScreen(navHostController)
         }
 
+        homeCoffeeReadyRoute(navController = navHostController)
+
         sizedProductRoute(navController = navHostController)
+
+        prepareProgressRoute(navController = navHostController)
 
         thankYouRoute(navController = navHostController)
 

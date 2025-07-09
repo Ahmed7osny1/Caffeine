@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Caffeine"
         tools:targetApi="31">
         <activity
-            android:name=".screens.main_activity.MainActivity"
+            android:name=".presentation.screens.main_activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Caffeine">
             <intent-filter>
