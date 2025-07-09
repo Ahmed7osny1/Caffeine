@@ -32,9 +32,9 @@ import androidx.navigation.NavController
 import com.example.caffeine.R
 import com.example.caffeine.presentation.composable.BackButtonHeader
 import com.example.caffeine.presentation.composable.CoffeeSelector
-import com.example.caffeine.presentation.composable.CupSize
+import com.example.caffeine.presentation.composable.CoffeeSize
 import com.example.caffeine.presentation.composable.IconTextButton
-import com.example.caffeine.presentation.composable.SizeSelector
+import com.example.caffeine.presentation.composable.CoffeeSizeSelector
 import com.example.caffeine.presentation.screens.home_screen.coffeeList
 import com.example.caffeine.presentation.screens.prepare_progress_screen.navigateToPrepareProgress
 import kotlinx.coroutines.launch
@@ -144,13 +144,13 @@ fun SizedProductContent(
             onBackClick = onBackClicked
         )
 
-        CupSize(
+        CoffeeSize(
             currentSize = currentSize.value,
             imageOffset = imageOffset.value,
             productImage = productImage
         )
 
-        SizeSelector(
+        CoffeeSizeSelector(
             currentSize = currentSize.value, onClick = {
                 currentSize.value = it
             })

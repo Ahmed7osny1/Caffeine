@@ -37,7 +37,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.caffeine.R
-import com.example.caffeine.presentation.composable.LinearWavyProgressCanvas
+import com.example.caffeine.presentation.composable.WavyProgress
 import com.example.caffeine.presentation.screens.home_coffee_ready_screen.navigateToHomeCoffeeReady
 import com.example.caffeine.presentation.screens.home_screen.coffeeList
 import com.example.caffeine.presentation.ui.theme.urbanist
@@ -110,7 +110,7 @@ private fun PrepareProgressContent(
             )
         }
         Spacer(Modifier.height(101.dp))
-        LinearWavyProgressCanvas(
+        WavyProgress(
             modifier = Modifier.fillMaxWidth(),
             progress = animatedProgress,
             waveHeight = 10.dp,

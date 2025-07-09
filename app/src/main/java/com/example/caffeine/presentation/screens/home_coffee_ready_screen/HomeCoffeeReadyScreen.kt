@@ -37,7 +37,7 @@ import com.example.caffeine.R
 import com.example.caffeine.presentation.composable.CloseButton
 import com.example.caffeine.presentation.composable.CoffeeSwitcherButton
 import com.example.caffeine.presentation.composable.IconTextButton
-import com.example.caffeine.presentation.composable.ReadySection
+import com.example.caffeine.presentation.composable.TopReadySection
 import com.example.caffeine.navigation.AppDestination
 import com.example.caffeine.presentation.screens.home_screen.coffeeList
 import com.example.caffeine.presentation.screens.sized_product_screen.SizedProductScreenViewModel
@@ -120,7 +120,7 @@ fun HomeCoffeeReadyContent(
 
         Spacer(Modifier.height(16.dp))
 
-        ReadySection(
+        TopReadySection(
             modifier = Modifier
                 .padding(bottom = 20.dp)
                 .offset(y = readySectionOffset.value.dp)

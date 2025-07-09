@@ -27,7 +27,7 @@ import com.example.caffeine.R
 import com.example.caffeine.presentation.ui.theme.urbanist
 
 @Composable
-fun CupSize(
+fun CoffeeSize(
     modifier: Modifier = Modifier,
     currentSize: String,
     imageOffset: Float,

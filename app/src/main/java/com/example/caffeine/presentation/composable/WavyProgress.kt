@@ -14,7 +14,7 @@ import kotlin.math.PI
 import kotlin.math.sin
 
 @Composable
-fun LinearWavyProgressCanvas(
+fun WavyProgress(
     modifier: Modifier = Modifier,
     progress: Float,
     wavelength: Dp = 80.dp,

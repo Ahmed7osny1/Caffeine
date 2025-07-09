@@ -25,7 +25,7 @@ import com.example.caffeine.extension.dropShadow
 import com.example.caffeine.presentation.ui.theme.urbanist
 
 @Composable
-fun SizeSelector(
+fun CoffeeSizeSelector(
     allSizes: List<String> = listOf("S", "M", "L"),
     onClick: (String) -> Unit = {},
     currentSize: String

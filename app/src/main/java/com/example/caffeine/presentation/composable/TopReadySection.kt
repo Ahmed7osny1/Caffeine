@@ -25,7 +25,7 @@ import com.example.caffeine.extension.dropShadow
 import com.example.caffeine.presentation.ui.theme.urbanist
 
 @Composable
-fun ReadySection(modifier: Modifier = Modifier) {
+fun TopReadySection(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
